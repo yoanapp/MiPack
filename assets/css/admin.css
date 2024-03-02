@@ -5,7 +5,16 @@
     flex-direction: column;
     justify-content: center; /* Centra los botones verticalmente */
     align-items: center; /* Centra los botones horizontalmente */
+
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px; /* Ajusta el ancho según sea necesario */
+    height: 100%;
+    overflow-y: auto; /* Permite el desplazamiento vertical en el sidebar */
+    background-color: #f8f9fa; /* Color de fondo del sidebar */
 }
+
 
   .nav-link {
     position: relative;
@@ -32,7 +41,7 @@
    background-color:rgb(56, 82, 122) ; 
 }
 .nav-link:hover:before {
-    width: 100%; /* Expande la ralla al 100% del ancho del botón */
+    width: 90%; /* Expande la ralla al 100% del ancho del botón */
 }
 .dropdown-toggle {
     padding:0; /* Ajusta el padding del menú desplegable */
