@@ -1,0 +1,60 @@
+.sidebar {
+            
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra los botones verticalmente */
+    align-items: center; /* Centra los botones horizontalmente */
+}
+
+  .nav-link {
+    position: relative;
+    overflow: hidden; /* Asegura que la ralla no se extienda más allá del botón */
+    padding-top: 50px ;
+}
+
+.nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: rgb(56, 82, 122);
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+.navbar-nav .nav-link img {
+    border-radius: 50%;
+    
+}
+.bg-primar{
+   background-color:rgb(56, 82, 122) ; 
+}
+.nav-link:hover:before {
+    width: 100%; /* Expande la ralla al 100% del ancho del botón */
+}
+.dropdown-toggle {
+    padding:0; /* Ajusta el padding del menú desplegable */
+}
+
+.dropdown-item{
+    position: relative;
+    overflow: hidden; /* Asegura que la ralla no se extienda más allá del botón */
+    padding-top: 10px ;
+}
+
+.dropdown-item:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: rgb(56, 82, 122);
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+.dropdown-item:hover:before{
+    width: 90%;
+}
