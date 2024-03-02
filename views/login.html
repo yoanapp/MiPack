@@ -1,6 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene el envío del formulario
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+
+           fetch('https://cronometro.onrender.com/api/auth/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: email,
+                password: password
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+          
+             localStorage.setItem('token', data.token);
+
+          console.log(data)})
+        .catch((error) => console.error('Error:', error));
+
+       /*    fetch('https://cronometro.onrender.com/api/auth/new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: email,
+                password: password
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+          
+          
+          localStorage.setItem('token', data.token);
+
+          if(data.roll === "profesor"){
+            window.location.href = "/views/index.html";
+          }
+          if(data.roll === "admin"){
+            window.location.href = "/admin";
+          }
+  
+          
+          console.log(data)})
+        .catch((error) => console.error('Error:', error)); */
+    });
+});
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -40,7 +96,7 @@
                   </div>
                 </div>
               </div>
-              <form action="#!">
+              <form action="#!" class="form">
                 <div class="row gy-3 overflow-hidden">
                   <div class="col-12">
                     <div class="form-floating mb-3">
