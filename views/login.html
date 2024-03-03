@@ -100,16 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row gy-3 overflow-hidden">
                   <div class="col-12">
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                      <input type="text" class="form-control" name="email" id="email" placeholder="name@example.com" required>
                       <label for="email" class="form-label">Usuario</label>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-floating mb-3">
-                      <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
-                      <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                        <label for="password" class="form-label">Contraseña</label>
                     </div>
-                  </div>
+                    <!-- Elemento para mostrar el mensaje -->
+                    <div id="passwordMessage" class="text-danger" style="display: none;">La contraseña debe tener almenos 8 caracteres.</div>
+                </div>
                   <div class="col-12">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button class="btn btn-primary btn-lg" type="submit">Entrar</button>
+                      <button id="submitButton" class="btn btn-primary btn-lg" type="submit" disabled>Entrar</button>
                     </div>
                   </div>
                 </div>
@@ -161,5 +163,28 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </section>
+  <script>
+    // Selecciona el input de la contraseña, el elemento para mostrar el mensaje y el botón
+    const passwordInput = document.getElementById('password');
+    const passwordMessage = document.getElementById('passwordMessage');
+    const submitButton = document.getElementById('submitButton');
+
+    // Función para verificar la longitud de la contraseña y habilitar/deshabilitar el botón
+    function checkPasswordLength() {
+        if (passwordInput.value.length >= 8) {
+            passwordMessage.style.display = 'none'; // Oculta el mensaje
+            submitButton.disabled = false; // Habilita el botón
+        } else {
+            passwordMessage.style.display = 'block'; // Muestra el mensaje
+            submitButton.disabled = true; // Deshabilita el botón
+        }
+    }
+
+    // Escucha el evento de entrada en el campo de contraseña
+    passwordInput.addEventListener('input', checkPasswordLength);
+
+    // Inicialmente, deshabilita el botón
+    submitButton.disabled = true;
+</script>
 </body>
 </html>
