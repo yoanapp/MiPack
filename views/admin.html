@@ -11,61 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  
 </head>
-<script>document.addEventListener('DOMContentLoaded', function() {
-    const fetchData = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await fetch('https://cronometro.onrender.com/api/trabajadores', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-token': token || '',
-                },
-            });
 
-            if (!response.ok) {
-                throw new Error('Error al obtener los trabajadores');
-            }
-
-            const data = await response.json();
-            const trabajadoresContainer = document.querySelector('.line[target="true"]');
-
-            data.trabajadores.forEach((trabajador) => {
-                const cardHTML = `
-                    <tr id="boton_${trabajador.id}">
-                            <td class="py-1" style="width: 50px; height: 50px;" >
-                                <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
-                            </td>
-                            <td>
-                                 <em>${trabajador.nombre}</em>
-                                 <br>
-                                 <small class="username-gray">${trabajador.
-                             categoriaDocente}</small>
-                            </td>
-                           
-                            <td>
-                                <button type="button" class="btn color-text"><em>Revisar</em></button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn color-red"><em>Eliminar</em></button>
-                            </td>
-                          </tr>
-                `;
-
-                trabajadoresContainer.insertAdjacentHTML('beforeend', cardHTML);
-            });
-
-        } catch (error) {
-            console.error('Error:', error);
-        } finally {
-            console.log('Fin de la carga');
-        }
-    };
-
-    fetchData();
-});
-</script>
 <body>
 <header class="fixed-top ">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar justify-content-between shadow-lg" style="width: 100%; height: 60px;">
@@ -150,7 +98,7 @@
             
             <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between mt-5">
                <div>
-                <h1 class="me-5"><em>Empleados</em></h1>
+                <h1 class="me-5 font-weight-bold">Empleados</h1>
                </div>
                <div>
                 <form role="search" class="d-flex">
@@ -191,6 +139,7 @@
         </div>
     </div>
 </section>
+<script src="../js/admin.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
