@@ -31,8 +31,8 @@
 
             data.trabajadores.forEach((trabajador) => {
                 const cardHTML = `
-                    <tr class="shadow-sm" id="boton_${trabajador.id}">
-                            <td class="py-1">
+                    <tr id="boton_${trabajador.id}">
+                            <td class="py-1" style="width: 50px; height: 50px;" >
                                 <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
                             </td>
                             <td>
@@ -65,47 +65,49 @@
 });
 </script>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar fixed-top justify-content-between shadow-lg" style="width: 100%; height: 60px;">
+<header class="fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar justify-content-between shadow-lg" style="width: 100%; height: 60px;">
  
-    <div class="">
-        <a class="navbar-brand px-3 fs-3 font-weight-bold " href="#"><em>Mi Pack</em></a>
-       </div>
-
-       
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-       
-
-<div>
-    <div class="collapse navbar-collapse d-flex " id="navbarNav">
-        <div class="dropdown mr-0">
-            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../assets/img/icons8-menú-2.svg" style="height: 30px; width: 30px;" alt="">
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#"><em>Inicio</em></a>
-                <a class="dropdown-item" href="#"><em>Servicios</em></a>
-                <a class="dropdown-item" href="#"><em>Portfolio</em></a>
-                <a class="dropdown-item" href="#"><em>Equipo</em></a>
-                <a class="dropdown-item" href="#"><em>Sobre nosotros</em></a>
-            </div>
-        </div>
+        <div class="">
+            <a class="navbar-brand px-3 fs-3 font-weight-bold " href="#"><em>Mi Pack</em></a>
+           </div>
     
-        <div class="navbar-nav ml-0">
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../assets/img/team/team-1.jpg" alt="Foto" class="rounded-circle" style="width: 40px; height: 40px;">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#"><em>Cerrar sección</em></a>
-                    <a class="dropdown-item" href="#"><em>Información</em></a>
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+    
+    <div>
+        <div class="collapse navbar-collapse d-flex " id="navbarNav">
+            <div class="dropdown mr-0">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../assets/img/icons8-menú-2.svg" style="height: 30px; width: 30px;" alt="">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><em>Inicio</em></a>
+                    <a class="dropdown-item" href="#"><em>Servicios</em></a>
+                    <a class="dropdown-item" href="#"><em>Portfolio</em></a>
+                    <a class="dropdown-item" href="#"><em>Equipo</em></a>
+                    <a class="dropdown-item" href="#"><em>Sobre nosotros</em></a>
+                </div>
+            </div>
+        
+            <div class="navbar-nav ml-0">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../assets/img/team/team-1.jpg" alt="Foto" class="rounded-circle" style="width: 40px; height: 40px;">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"><em>Cerrar sección</em></a>
+                        <a class="dropdown-item" href="#"><em>Información</em></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    </nav>
+        </nav>
+</header>
 <section>
     <div class="container-fluid">
         <div class="row">
@@ -142,7 +144,7 @@
             </nav>            
         </div>
 
-        <div class="main-content mt-5">
+        <div class="main-content " style="margin-top: 90px;">
             
             <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between mt-5">
                <div>
@@ -162,22 +164,24 @@
                 </div>
             </div>
 
-            <div class="col-lg-12 grid-margin stretch-card ">
-                <div class="">
-                  <div class="">
-                   
-                    <div class="table-responsive">
-                      <table class="table ">
-        
-                        <tbody class="line" target="true">
+            <div class="container shadow-sm rounded-2">
+                <div class="col-lg-12 grid-margin stretch-card ">
+                    <div class="">
+                      <div class="">
                        
-                          
-                        </tbody>
-                      </table>
+                        <div class="table-responsive">
+                          <table class="table ">
+            
+                            <tbody class="line" target="true">
+                           
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+            </div>
         </div>
     </div>
 </section>
