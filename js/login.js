@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
 
 
-           fetch('https://cronometro.onrender.com/api/auth/', {
+           fetch('https://cronometro.onrender.com/api/empleados/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

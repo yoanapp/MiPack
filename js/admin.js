@@ -1,3 +1,24 @@
+
+document.getElementById('validationCustom04').addEventListener('change', function() {
+    var selectedRole = this.value;
+    var userField = document.getElementById('userField');
+    var passwordField = document.getElementById('passwordField');
+
+    if (selectedRole === 'admin' || selectedRole === 'repartidor') {
+        userField.style.display = 'block';
+        passwordField.style.display = 'block';
+    } else {
+        userField.style.display = 'none';
+        passwordField.style.display = 'none';
+    }
+});
+
+    document.getElementById('validationCustom01').addEventListener('change', function() {
+        var inputValue = this.value;
+        console.log(inputValue); // Aquí puedes reemplazar console.log con cualquier acción que necesites realizar con el valor del input
+    });
+
+
 async function logButtonId(buttonId) {
     // Reemplazar el prefijo "buton_" con una cadena vacía para obtener el ID del trabajador
     var cleanId = buttonId.replace('buton_', '');
@@ -38,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('https://cronometro.onrender.com/api/trabajadores', {
+            const response = await fetch('https://cronometro.onrender.com/api/paquetes/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                  <em>${trabajador.nombre}</em>
                                  <br>
                                  <small class="username-gray">${trabajador.
-                             categoriaDocente}</small>
+                             peso}</small>
                             </td>
                            
                             <td>
@@ -87,3 +108,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetchData();
 });
+
+document.getElementById('searchForm').addEventListener('submit', async function(event) {
+    // Prevenir el comportamiento predeterminado del formulario
+    event.preventDefault();
+
+    // Obtener el valor del campo de búsqueda
+    const searchValue = document.getElementById('searchInput').value;
+
+    // Construir la URL para la solicitud GET
+    const url = `https://cronometro.onrender.com/api/trabajadores?nombre=${encodeURIComponent(searchValue)}`;
+
+    try {
+        // Realizar la solicitud GET
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al buscar el trabajador');
+        }
+
+        // Procesar la respuesta
+        const data = await response.json();
+
+        // Mostrar los resultados de la búsqueda
+        console.log(data);
+        // Aquí puedes agregar el código para mostrar los resultados en la interfaz de usuario
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -61,7 +61,7 @@
 <section>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-left shadow-sm">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-left shadow-sm ">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -96,21 +96,140 @@
 
         <div class="main-content " style="margin-top: 90px;">
             
-            <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between mt-5">
-               <div>
-                <h1 class="me-5 font-weight-bold">Empleados</h1>
+<div class="container shadow-sm rounded-2">
+    <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between mt-5">
+        <div>
+         <h1 class="me-5 font-weight-bold">Empleados</h1>
+        </div>
+        <div>
+         <form role="search" class="d-flex" id="searchForm">
+             <input class="form-control me-2 border border-primary rounded-5" type="search" placeholder="Buscar" aria-label="Search" id="searchInput">
+             <button class="btn btn-primary rounded" type="submit">Buscar</button>
+         </form>
+         
+        </div>
+
+        <button type="button" class="btn bg-primar me-5 btn-hover-red rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" id="openModalButton">
+            <i class="bi bi-plus text-white" style="font-size: 34px;"></i>
+        </button>
+
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalLabel">Nuevo Trabajador</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body">
+                   
+                     
+                      <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-4">
+                          <label for="validationCustom01" class="form-label">Nombres</label>
+                          <input type="text" class="form-control" id="validationCustom01" value="" required>
+                          <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustom02" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="" required pattern="[a-zA-Z\s]*">
+                            <div class="invalid-feedback">
+                                Please provide a valid name.
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustom04" class="form-label">Rol</label>
+                            <select class="form-select" id="validationCustom04" required>
+                                <option selected disabled value="">Seleccionar</option>
+                                <option value="admin">Administrador</option>
+                                <option value="repartidor">Repartidor</option>
+                                <option value="secretaria">Secretaria</option>
+                                
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid role.
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="userField">
+                          <label for="validationCustomUsername" class="form-label">Usuario</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                              Please choose a username.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4" id="passwordField" style="display: none;">
+                            <label for="inputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid password.
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="validationCustom05" class="form-label">Telefono</label>
+                            <input type="number" class="form-control" id="validationCustom05" required pattern="\d*">
+                            <div class="invalid-feedback">
+                                Please provide a valid phone number.
+                            </div>
+                        </div>
+                        <div class=" mb-3">
+                            <label for="formFile" class="form-label">Foto</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                          <div class="col-md-6">
+                            <label for="validationCustom04" class="form-label">Provincia</label>
+                            <select class="form-select" id="validationCustom04" required>
+                              <option><option selected disabled value="">Seleccionar</option>
+                              <option value="La habana">La habana</option>
+                              <option value="Pinar del rio">Pinar del rio</option>
+                              <option value="Artemisa">Artemisa</option>
+                              <option value="Mayabeque">Mayabeque</option></option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Please select a valid .
+                            </div>
+                          </div>
+                     
+                          <div class="col-md-6">
+                            <label for="validationCustom03" class="form-label">Municipio</label>
+                            <input type="text" class="form-control" id="validationCustom03" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid city.
+                            </div>
+                          </div>
+                      
+                      
+
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                              De acuerdo con la informacion
+                            </label>
+                            <div class="invalid-feedback">
+                              You must agree before submitting.
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </form>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                   <button type="submit" class="btn btn-primary">Guardar</button>
+                 </div>
                </div>
-               <div>
-                <form role="search" class="d-flex">
-                    <input class="form-control me-2 border border-primary rounded-5" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-primary rounded" type="submit">Buscar</button>
-                </form>
-                
-               </div>
-               <button type="button" class="btn bg-primar me-5 btn-hover-red rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                <i class="bi bi-plus text-white" style="font-size: 34px;"></i>
-            </button>
             </div>
+           </div>
+
+  
+     </div>
+</div>
             
             <div class="container">
                 <div class="row " target="true">
@@ -142,5 +261,11 @@
 <script src="../js/admin.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('openModalButton').addEventListener('click', function() {
+    $('#myModal').modal('show');
+});
+    </script>
+
 </body>
 </html>
