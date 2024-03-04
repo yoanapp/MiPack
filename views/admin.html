@@ -27,20 +27,32 @@
             }
 
             const data = await response.json();
-            const trabajadoresContainer = document.querySelector('.row[target="true"]');
+            const trabajadoresContainer = document.querySelector('.line[target="true"]');
 
             data.trabajadores.forEach((trabajador) => {
                 const cardHTML = `
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="ruta/a/la/imagen1.jpg" class="card-img-top" alt="${trabajador.nombre}">
-                            <div class="card-body">
-                                <h5 class="card-title">${trabajador.nombre}</h5>
-                                <p class="card-text">Descripción del producto 1.</p>
-                                <a href="#" class="btn btn-primary">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
+                    <tr class="shadow-sm">
+                            <td class="py-1">
+                                <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
+                            </td>
+                            <td>
+    ${trabajador.nombre}
+    <br>
+    <small class="username-gray">${trabajador.
+categoriaDocente}</small>
+</td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 77.99
+                            </td>
+                            <td>
+                              May 15, 2015
+                            </td>
+                          </tr>
                 `;
 
                 trabajadoresContainer.insertAdjacentHTML('beforeend', cardHTML);
@@ -57,7 +69,7 @@
 });
 </script>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar sticky-top justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar sticky-top justify-content-between shadow-lg">
  
     <div>
         <a class="navbar-brand px-3 fs-3 font-weight-bold " href="#"><em>Mi Pack</em></a>
@@ -150,6 +162,22 @@
               
                 </div>
             </div>
+            <div class="col-lg-12 grid-margin stretch-card ">
+                <div class="">
+                  <div class="">
+                   
+                    <div class="table-responsive">
+                      <table class="table ">
+        
+                        <tbody class="line" target="true">
+                       
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 </section>
