@@ -31,26 +31,22 @@
 
             data.trabajadores.forEach((trabajador) => {
                 const cardHTML = `
-                    <tr class="shadow-sm">
+                    <tr class="shadow-sm" id="boton_${trabajador.id}">
                             <td class="py-1">
                                 <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
                             </td>
                             <td>
-    ${trabajador.nombre}
-    <br>
-    <small class="username-gray">${trabajador.
-categoriaDocente}</small>
-</td>
+                                 <em>${trabajador.nombre}</em>
+                                 <br>
+                                 <small class="username-gray">${trabajador.
+                             categoriaDocente}</small>
+                            </td>
+                           
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                                <button type="button" class="btn color-text"><em>Revisar</em></button>
                             </td>
                             <td>
-                              $ 77.99
-                            </td>
-                            <td>
-                              May 15, 2015
+                                <button type="button" class="btn color-red"><em>Eliminar</em></button>
                             </td>
                           </tr>
                 `;
@@ -69,9 +65,9 @@ categoriaDocente}</small>
 });
 </script>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar sticky-top justify-content-between shadow-lg">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primar navbar fixed-top justify-content-between shadow-lg" style="width: 100%; height: 60px;">
  
-    <div>
+    <div class="">
         <a class="navbar-brand px-3 fs-3 font-weight-bold " href="#"><em>Mi Pack</em></a>
        </div>
 
@@ -80,30 +76,31 @@ categoriaDocente}</small>
             <span class="navbar-toggler-icon"></span>
         </button>
        
- 
 
- <div class="collapse navbar-collapse d-flex" id="navbarNav">
-    <div class="dropdown mr-0">
-        <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../assets/img/icons8-menú-2.svg" style="height: 30px; width: 30px;" alt="">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"><em>Inicio</em></a>
-            <a class="dropdown-item" href="#"><em>Servicios</em></a>
-            <a class="dropdown-item" href="#"><em>Portfolio</em></a>
-            <a class="dropdown-item" href="#"><em>Equipo</em></a>
-            <a class="dropdown-item" href="#"><em>Sobre nosotros</em></a>
+<div>
+    <div class="collapse navbar-collapse d-flex " id="navbarNav">
+        <div class="dropdown mr-0">
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/icons8-menú-2.svg" style="height: 30px; width: 30px;" alt="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"><em>Inicio</em></a>
+                <a class="dropdown-item" href="#"><em>Servicios</em></a>
+                <a class="dropdown-item" href="#"><em>Portfolio</em></a>
+                <a class="dropdown-item" href="#"><em>Equipo</em></a>
+                <a class="dropdown-item" href="#"><em>Sobre nosotros</em></a>
+            </div>
         </div>
-    </div>
-
-    <div class="navbar-nav ml-0">
-        <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../assets/img/team/team-1.jpg" alt="Foto" class="rounded-circle" style="width: 40px; height: 40px;">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"><em>Cerrar sección</em></a>
-                <a class="dropdown-item" href="#"><em>Información</em></a>
+    
+        <div class="navbar-nav ml-0">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../assets/img/team/team-1.jpg" alt="Foto" class="rounded-circle" style="width: 40px; height: 40px;">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><em>Cerrar sección</em></a>
+                    <a class="dropdown-item" href="#"><em>Información</em></a>
+                </div>
             </div>
         </div>
     </div>
@@ -145,16 +142,18 @@ categoriaDocente}</small>
             </nav>            
         </div>
 
-        <div class="main-content mt-4">
-
-            <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between">
+        <div class="main-content mt-5">
+            
+            <div class="font-weight-bold color-text container-fluid d-flex align-items-center px-5 mb-4 justify-content-between mt-5">
                <div>
                 <h1 class="me-5"><em>Empleados</em></h1>
                </div>
+               <div>
                 <form role="search" class="d-flex">
                     <input class="form-control me-2 border border-primary rounded-5" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-primary rounded" type="submit">Buscar</button>
                 </form>
+               </div>
             </div>
             
             <div class="container">
@@ -162,6 +161,7 @@ categoriaDocente}</small>
               
                 </div>
             </div>
+
             <div class="col-lg-12 grid-margin stretch-card ">
                 <div class="">
                   <div class="">

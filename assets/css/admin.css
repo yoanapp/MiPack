@@ -1,3 +1,9 @@
+
+body {
+    font-family: "Open Sans", sans-serif;
+    
+  }
+
 .sidebar {
             
     min-height: 100vh;
@@ -74,6 +80,9 @@
 
 .color-text{
     color:  rgb(56, 82, 122);
+}
+.color-red{
+    color: rgb(224, 65, 65);
 }
 .username-gray {
     color: #80808080;
