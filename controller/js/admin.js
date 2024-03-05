@@ -153,24 +153,31 @@ document.getElementById('empleadoForm').addEventListener('submit', function (eve
         telefono: document.getElementById('validationCustom05').value,
         foto: document.getElementById('validationCustom08').value,
         ocupacion: document.getElementById('validationCustom04').value,
-        descripcion: document.getElementById('descripcion').value,
-        direccion: document.getElementById('validationCustom06').value,
+        direccion: {
+            calle: document.getElementById('calle').value,
+            municipio: document.getElementById('validationCustom03').value,
+            numero: document.getElementById('numero').value,
+            provincia: document.getElementById('validationCustom06').value
+        },
         rol: document.getElementById('validationCustom04').value,
         name: document.getElementById('validationCustomUsername').value,
         password: document.getElementById('inputPassword').value
     };
-
+    const token = localStorage.getItem('token');
     // Realizar la solicitud POST para crear el empleado
     fetch('https://cronometro.onrender.com/api/empleados/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'x-token': token || '',
 
         },
         body: JSON.stringify(empleado)
     })
         .then(response => response.json())
         .then(data => {
+
+           
             console.log('Empleado creado con éxito:', data);
         })
         .catch((error) => {
