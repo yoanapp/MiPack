@@ -66,27 +66,27 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active font-weight-bold fs-5" href="#">
-                              <em>Empleados</em> 
+                              Empleados 
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold fs-5" href="#">
-                               <em>Inventario</em>
+                               Inventario
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold fs-5" href="#">
-                               <em>Paquetes a entregar</em> 
+                               Paquetes a entregar 
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold fs-5" href="#">
-                               <em>Convocatorias</em> 
+                               Convocatorias
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold fs-5" href="#">
-                               <em>Clientes</em> 
+                               Clientes
                             </a>
                         </li>
                     </ul>
@@ -126,14 +126,14 @@
                    
                      
                       <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <label for="validationCustom01" class="form-label">Nombres</label>
                           <input type="text" class="form-control" id="validationCustom01" value="" required>
                           <div class="valid-feedback">
                             Looks good!
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Apellidos</label>
                             <input type="text" class="form-control" id="validationCustom02" value="" required pattern="[a-zA-Z\s]*">
                             <div class="invalid-feedback">
@@ -147,6 +147,7 @@
                                 <option value="admin">Administrador</option>
                                 <option value="repartidor">Repartidor</option>
                                 <option value="secretaria">Secretaria</option>
+                                <option value="">Ninguno</option>
                                 
                             </select>
                             <div class="invalid-feedback">
@@ -170,8 +171,8 @@
                                 Please provide a valid password.
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom05" class="form-label">Telefono</label>
+                        <div class="col-md-4">
+                            <label for="validationCustom05" class="form-label">Teléfono</label>
                             <input type="number" class="form-control" id="validationCustom05" required pattern="\d*">
                             <div class="invalid-feedback">
                                 Please provide a valid phone number.
@@ -203,20 +204,30 @@
                             </div>
                           </div>
                       
-                      
-
-                        <div class="col-12">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                              De acuerdo con la informacion
-                            </label>
+                          <div class="col-md-6">
+                            <label for="identityCardNumber" class="form-label">Número de Carnet de Identidad</label>
+                            <input type="number" class="form-control" id="identityCardNumber" required pattern="[0-9]*" step="1">
                             <div class="invalid-feedback">
-                              You must agree before submitting.
+                                Por favor, ingrese un número de carnet de identidad válido.
+                            </div>
+                        </div>
+
+                 
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                              <label class="form-check-label" for="invalidCheck">
+                                De acuerdo con la información
+                              </label>
+                              <div class="invalid-feedback">
+                                You must agree before submitting.
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        
                       </form>
                  </div>
                  <div class="modal-footer">

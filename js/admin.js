@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('https://cronometro.onrender.com/api/paquetes/', {
+            const response = await fetch('https://cronometro.onrender.com/api/empleados/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,30 +68,30 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (!response.ok) {
-                throw new Error('Error al obtener los trabajadores');
+                throw new Error('Error al obtener los empleados');
             }
 
             const data = await response.json();
             const trabajadoresContainer = document.querySelector('.line[target="true"]');
 
-            data.trabajadores.forEach((trabajador) => {
+            data.empleados.forEach((empleados) => {
                 const cardHTML = `
-                    <tr id="${trabajador.id}">
+                    <tr id="${empleados.id}">
                             <td class="py-1" style="width: 50px; height: 50px;" >
                                 <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
                             </td>
                             <td>
-                                 <em>${trabajador.nombre}</em>
+                                 <em>${empleados.nombre}</em>
                                  <br>
-                                 <small class="username-gray">${trabajador.
-                             peso}</small>
+                                 <small class="username-gray">${empleados.
+                             rol}</small>
                             </td>
                            
                             <td>
                                 <button type="button" class="btn color-text" ><em>Revisar</em></button>
                             </td>
                             <td>
-    <button type="button" class="btn color-red" id="buton_${trabajador.id}" onclick="logButtonId(this.id)"><em>Eliminar</em></button>
+    <button type="button" class="btn color-red" id="buton_${empleados.id}" onclick="logButtonId(this.id)"><em>Eliminar</em></button>
 </td>
                           </tr>
                 `;

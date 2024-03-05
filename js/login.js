@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
           
              localStorage.setItem('token', data.token);
-     window.location.href = "/views/admin.html";
+    if(data.ok === true) {
+        window.location.href = "/views/admin.html";
+    }
           console.log(data)})
         .catch((error) => console.error('Error:', error));
 
