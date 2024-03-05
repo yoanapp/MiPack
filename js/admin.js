@@ -13,11 +13,7 @@ document.getElementById('validationCustom04').addEventListener('change', functio
     }
 });
 
-    document.getElementById('validationCustom01').addEventListener('change', function() {
-        var inputValue = this.value;
-        console.log(inputValue); // Aquí puedes reemplazar console.log con cualquier acción que necesites realizar con el valor del input
-    });
-
+  
 
 async function logButtonId(buttonId) {
     // Reemplazar el prefijo "buton_" con una cadena vacía para obtener el ID del trabajador
@@ -142,6 +138,43 @@ document.getElementById('searchForm').addEventListener('submit', async function(
     } catch (error) {
         console.error('Error:', error);
     }
+
 });
 
+document.getElementById('empleadoForm').addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+ 
+    const empleado = {
+        ci: document.getElementById('identityCardNumber').value,
+        nombre: document.getElementById('validationCustom01').value,
+        apellido: document.getElementById('validationCustom02').value,
+        telefono: document.getElementById('validationCustom05').value,
+        foto: document.getElementById('validationCustom08').value,
+        ocupacion: document.getElementById('validationCustom04').value,
+        descripcion: document.getElementById('descripcion').value,
+        direccion: document.getElementById('validationCustom06').value,
+        rol: document.getElementById('validationCustom04').value,
+        name: document.getElementById('validationCustomUsername').value,
+        password: document.getElementById('inputPassword').value
+    };
+
+    // Realizar la solicitud POST para crear el empleado
+    fetch('https://cronometro.onrender.com/api/empleados/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            
+        },
+        body: JSON.stringify(empleado)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Empleado creado con éxito:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
 

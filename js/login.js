@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if(data.ok === true) {
         window.location.href = "/views/admin.html";
     }
+    else {
+        // Mostrar el mensaje de error si hay uno
+        const errorMessageElement = document.getElementById('loginErrorMessage');
+        errorMessageElement.textContent = data.msg || 'Error de inicio de sesión. Por favor, intente de nuevo.';
+        errorMessageElement.style.display = 'block'; // Hacer visible el mensaje de error
+    }
           console.log(data)})
         .catch((error) => console.error('Error:', error));
 
