@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             data.empleados.forEach((empleados) => {
                 const cardHTML = `
-                    <tr id="${empleados.id}">
+                    <tr id="${empleados._id}">
                             <td class="py-1" style="width: 50px; height: 50px;" >
                                 <img src="../assets/img/team/profile-pic 12.png" alt="image" class="rounded-circle" style="border: 2px solid #80808080; width: 50px; height: 50px;"/>
                             </td>
@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
                             </td>
                            
                             <td>
-                                <button type="button" class="btn color-text" ><em>Revisar</em></button>
+                                <button type="button" class="btn color-text" id="revisar_${empleados._id}"><em>Revisar</em></button>
                             </td>
                             <td>
-                                  <button type="button" class="btn color-red" id="buton_${empleados.id}" onclick="logButtonId(this.id)"><em>Eliminar</em></button>
+                                  <button type="button" class="btn color-red" id="buton_${empleados._id}" onclick="logButtonId(this.id)"><em>Eliminar</em></button>
                               </td>
                           </tr>
                 `;
@@ -163,6 +163,7 @@ document.getElementById('empleadoForm').addEventListener('submit', function (eve
         name: document.getElementById('validationCustomUsername').value,
         password: document.getElementById('inputPassword').value
     };
+
     const token = localStorage.getItem('token');
     // Realizar la solicitud POST para crear el empleado
     fetch('https://cronometro.onrender.com/api/empleados/', {
@@ -177,11 +178,71 @@ document.getElementById('empleadoForm').addEventListener('submit', function (eve
         .then(response => response.json())
         .then(data => {
 
-           
+          //  localStorage.setItem('token', data.token);
+
+            if (data.ok === true) {
+                // Mostrar el mensaje de error si hay uno
+                const errorMessageElement = document.getElementById('createEmployeMessage');
+                errorMessageElement.textContent = data.msg || 'Error al crear el empleado';
+                errorMessageElement.style.display = 'block'; // Hacer visible el mensaje de error
+            }
+            else{
+                   // Mostrar el mensaje de error si hay uno
+                   const errorMessageElement = document.getElementById('createEmployeMessage');
+                   errorMessageElement.textContent = 'Error al crear el empleado, revise que todos los campos esten llenos y o cambiar el nombre de usuario';
+                   errorMessageElement.style.display = 'block'; // Hacer visible el mensaje de error
+                   errorMessageElement.style.color = 'red'
+            }
+
             console.log('Empleado creado con éxito:', data);
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+
+
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Función para obtener los datos del empleado por ID
+    async function obtenerDatosEmpleado(id) {
+        // Realiza una solicitud GET a tu API para obtener los datos del empleado
+        const response = await fetch(`https://cronometro.onrender.com/api/empleados/`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-token': token || '',
+                // Asegúrate de incluir cualquier token de autenticación necesario
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos del empleado');
+        }
+        const empleado = await response.json();
+        return empleado;
+    }
+
+    // Función para mostrar el modal con los datos del empleado
+    async function mostrarModalEmpleado(id) {
+        try {
+            const empleado = await obtenerDatosEmpleado(id);
+            document.getElementById('empleadoNombre').textContent = empleado.nombre;
+            document.getElementById('empleadoRol').textContent = empleado.rol;
+            // Llena los demás campos según sea necesario
+
+            $('#empleadoModal').modal('show');
+        } catch (error) {
+            console.error('Error al mostrar el modal:', error);
+        }
+    }
+
+    // Agregar event listeners a los botones "Revisar"
+    document.querySelectorAll('[id^="revisar_"]').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.id.replace('revisar_', '');
+            mostrarModalEmpleado(id);
+        });
+    });
+});
+
 
