@@ -72,27 +72,23 @@
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-left shadow-sm ">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
-                            <li class="nav-item">
+                            <li class="nav-item sidebar-item" data-section="traba">
                                 <a class="nav-link active font-weight-bold fs-5" href="#">
                                     Empleados
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item sidebar-item" data-section="inventario">
                                 <a class="nav-link font-weight-bold fs-5" href="#">
                                     Inventario
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item sidebar-item" data-section="paque">
                                 <a class="nav-link font-weight-bold fs-5" href="#">
                                     Paquetes a entregar
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link font-weight-bold fs-5" href="#">
-                                    Convocatorias
-                                </a>
-                            </li>
-                            <li class="nav-item">
+                            
+                            <li class="nav-item sidebar-item" data-section="cliente">
                                 <a class="nav-link font-weight-bold fs-5" href="#">
                                     Clientes
                                 </a>
@@ -139,24 +135,24 @@
 
 
                                         <form class="row g-3 needs-validation" novalidate id="empleadoForm">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 " required>
                                                 <label for="validationCustom01" class="form-label">Nombres</label>
                                                 <input type="text" class="form-control" id="validationCustom01"
                                                     required>
-                                                <div class="valid-feedback">
-                                                    Looks good!
+                                                <div class="invalid-feedback">
+                                                   El nombre solo debe contener letras
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" required>
                                                 <label for="validationCustom02" class="form-label">Apellidos</label>
-                                                <input type="text" class="form-control" id="validationCustom02" required
+                                                <input type="text" class="form-control" id="validationCustom02" 
                                                     pattern="[a-zA-Z\s]*">
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid name.
+                                                    El apellido solo debe contener letras
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="validationCustom04" class="form-label">Rol</label>
+                                            <div class="col-md-4" required>
+                                                <label for="validationCustom04" class="form-label">Ocupación</label>
                                                 <select class="form-select" id="validationCustom04" required>
                                                     <option selected disabled value="">Seleccionar</option>
                                                     <option value="admin">Administrador</option>
@@ -166,7 +162,7 @@
 
                                                 </select>
                                                 <div class="invalid-feedback">
-                                                    Please select a valid role.
+                                                    Por favor selecione un elemento
                                                 </div>
                                             </div>
                                             <div class="col-md-4" id="userField">
@@ -177,15 +173,15 @@
                                                         id="validationCustomUsername"
                                                         aria-describedby="inputGroupPrepend" required>
                                                     <div class="invalid-feedback">
-                                                        Please choose a username.
+                                                        Introduzca un nombre de usuario 
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4" id="passwordField" style="display: none;">
+                                            <div class="col-md-4" id="passwordField" style="display: none; " >
                                                 <label for="inputPassword" class="form-label">Contraseña</label>
                                                 <input type="password" class="form-control" id="inputPassword" required>
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid password.
+                                                    Introduzca una contraseña
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -193,7 +189,7 @@
                                                 <input type="number" class="form-control" id="validationCustom05"
                                                     required pattern="\d*">
                                                 <div class="invalid-feedback">
-                                                    Please provide a valid phone number.
+                                                    Número incorrecto
                                                 </div>
                                             </div>
                                             <div class=" mb-3">
@@ -201,7 +197,7 @@
                                                 <input type="text" class="form-control" id="validationCustom08"
                                                     required>
                                             </div>
-                                            <div class="col-md-6">
+                                          <!-- <div class="col-md-6">
                                                 <label for="validationCustom04" class="form-label">Provincia</label>
                                                 <select class="form-select" id="validationCustom06" required>
                                                     <option>
@@ -215,18 +211,23 @@
                                                 <div class="invalid-feedback">
                                                     Please select a valid .
                                                 </div>
-                                            </div>
+                                            </div> --> 
 
                                             <div class="col-md-6">
-                                                <label for="validationCustom03" class="form-label">Municipio</label>
-                                                <input type="text" class="form-control" id="validationCustom03"
-                                                    required>
+                                                <label for="validationCustom03" class="form-label">Sexo</label>
+                                                <select class="form-select" id="validationCustom03" required>
+                                                    <option>
+                                                    <option selected disabled value="">Seleccionar</option>
+                                                    <option value="M">Masculino</option>
+                                                    <option value="F">Femenino</option>
+                                                    </option>
+                                                </select>
                                                 <div class="invalid-feedback">
                                                     Please provide a valid city.
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                           <!-- <div class="col-md-6">
                                                 <label for="numero" class="form-label">Numero</label>
                                                 <input type="text" class="form-control" id="numero"
                                                     required pattern="\d*">
@@ -242,9 +243,9 @@
                                                 <div class="invalid-feedback">
                                                     Please provide a valid city.
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="col-md-6">
-                                                <label for="identityCardNumber" class="form-label">Número de Carnet de
+                                                <label for="identityCardNumber" class="form-label">Carnet de
                                                     Identidad</label>
                                                 <input type="number" class="form-control" id="identityCardNumber"
                                                     required pattern="[0-9]*" step="1">
@@ -252,7 +253,25 @@
                                                     Por favor, ingrese un número de carnet de identidad válido.
                                                 </div>
                                             </div>
-
+                                          <!--  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="helpModalLabel">Ayuda</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Aquí va la explicación sobre cómo ingresar el carnet de identidad correctamente.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            -->
                                             <div class="col-md-12">
                                                 <label for="description" class="form-label">Descripción</label>
                                                 <textarea class="form-control" id="description" rows="3"></textarea>
@@ -267,7 +286,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Cerrar</button>
-                                                <button class="btn btn-primary"  type="submit">Guardar</button>
+                                                <button class="btn btn-primary"  type="submit" >Guardar</button>
                                             </div>
                                         </form>
                                     </div>

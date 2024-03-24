@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
 
-        fetch('https://cronometro.onrender.com/api/empleados/login', {
+        fetch('https://prueba-czjk.onrender.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,14 +22,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 localStorage.setItem('token', data.token);
 
-                if (data.ok === true) {
-                    window.location.href = "/views/admin.html";
-                }
-                else {
+                if (!data.user) {
                     // Mostrar el mensaje de error si hay uno
                     const errorMessageElement = document.getElementById('loginErrorMessage');
                     errorMessageElement.textContent = data.msg || 'Error de inicio de sesión. Por favor, intente de nuevo.';
                     errorMessageElement.style.display = 'block'; // Hacer visible el mensaje de error
+
+                }
+                if (data.user.adminID !== null) {
+                    window.location.href = "/views/admin.html";
                 }
                 console.log(data)
             })
